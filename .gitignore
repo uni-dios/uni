@@ -8,7 +8,6 @@ __pycache__/
 
 **/env_uni/
 *.pyc
-*.db
 .env
 
 # Distribution / packaging

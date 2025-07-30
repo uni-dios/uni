@@ -2,8 +2,8 @@
 
 ## *Patents Pending*:  
 ```
-• **TAPESTRY** – Long-Term Memory Summarization System\
-• **LSP** – Language Structure Protocol for Deterministic Parsing
+* TAPESTRY – Long-Term Memory Summarization System
+* LSP – Language Structure Protocol for Deterministic Parsing
 ```
 ## Requirements:
 

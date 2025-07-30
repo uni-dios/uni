@@ -1,6 +1,6 @@
 # Universal Neural Intelligence (Uni) Engine
 
-### Deterministic Intelligence Operating System
+## The Deterministic Intelligence Operating System
 
 ## *Patents Pending*:  
 ```

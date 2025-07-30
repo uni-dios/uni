@@ -1,5 +1,9 @@
 # Universal Neural Intelligence (Uni) Engine
 
+## *Patents Pending*:  
+• **TAPESTRY** – Long-Term Memory Summarization System
+• **LSP** – Language Structure Protocol for Deterministic Parsing
+
 ## Requirements:
 
 Make sure you have an `.env` file in the root of each phase with the GROQ_API_KEY value as `GROQ_API_KEY=gsk_XXX`

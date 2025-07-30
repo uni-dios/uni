@@ -1,10 +1,10 @@
 # Universal Neural Intelligence (Uni) Engine
 
 ## *Patents Pending*:  
-• **TAPESTRY** – Long-Term Memory Summarization System
-
+```
+• **TAPESTRY** – Long-Term Memory Summarization System\
 • **LSP** – Language Structure Protocol for Deterministic Parsing
-
+```
 ## Requirements:
 
 Make sure you have an `.env` file in the root of each phase with the GROQ_API_KEY value as `GROQ_API_KEY=gsk_XXX`
@@ -37,6 +37,7 @@ Summarizes conversations and stores them in a SQLite database for recall and con
 
 Each phase is in a self-contained folder. Each folder includes its own Flask app, database, virtual environment (`env_uni`), and `requirements.txt`.
 
+```
 /
 |-- uni-alpha
 |-- uni-bravo
@@ -45,7 +46,7 @@ Each phase is in a self-contained folder. Each folder includes its own Flask app
 |-- uni-echo
 |-- uni-foxtrot
 |-- README.md
-
+```
 ## Phase Overview
 
 uni-alpha

@@ -81,6 +81,8 @@ __pycache__/
 *.db
 .env
 
+Note: This project uses a PyTorch nightly build. To install correctly, follow PyTorch nightly instructions. The provided requirements.txt expects nightly wheels (e.g., torch==2.9.0.dev...). Use pip install --pre torch or download the specific wheel from the official site.
+
 ## License
 
 This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE) file for details.

@@ -2,7 +2,7 @@
 
 ## Requirements:
 
-Make sure you have an `.env` file in the root with the GROQ_API_KEY value as `GROQ_API_KEY=gsk_XXX`
+Make sure you have an `.env` file in the root of each phase with the GROQ_API_KEY value as `GROQ_API_KEY=gsk_XXX`
 
 ## Introduction
 

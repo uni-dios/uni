@@ -1,5 +1,9 @@
 # Universal Neural Intelligence (Uni) Engine
 
+## Requirements:
+
+Make sure you have an `.env` file in the root with the GROQ_API_KEY value as `GROQ_API_KEY=gsk_XXX`
+
 ## Introduction
 
 The Universal Neural Intelligence (Uni) Engine is a modular, language-driven AI framework designed for real-time command processing and continuous learning. It combines deterministic parsing with optional LLM fallback and includes long-term memory via summarization. The system treats language as a formal protocol: it parses, interprets, stores, and acts on natural language commands with verifiable precision.

@@ -1,0 +1,21 @@
+./
+    .env
+    app.py
+    db/
+        uni-alpha.db
+    docs/
+        database_structure.txt
+        folder_structure.txt
+        requirements.txt
+    helpers/
+        backup.py
+        dbsqlite.py
+    static/
+        autosize.min.js
+        dispatch.css
+        dispatch.js
+        jquery.ui.touch-punch.min.js
+        main.css
+    templates/
+        index.html
+        messages.html

@@ -1,0 +1,16 @@
+=== INKY DATABASE STRUCTURE ===
+
+TABLE: messages
+----------------------------------------
+  0   msg_id               INTEGER NOT NULL PRIMARY KEY DEFAULT NULL
+  1   msg_role             TEXT NOT NULL DEFAULT NULL
+  2   msg_content          TEXT NOT NULL DEFAULT NULL
+  3   msg_created          timestamp NOT NULL DEFAULT current_timestamp
+  4   msg_updated          timestamp NOT NULL DEFAULT current_timestamp
+
+TABLE: sqlean_define
+----------------------------------------
+  0   name                 TEXT PRIMARY KEY DEFAULT NULL
+  1   type                 TEXT DEFAULT NULL
+  2   body                 TEXT DEFAULT NULL
+

@@ -1,0 +1,25 @@
+./
+    .env
+    app.py
+    requirements.txt
+    db/
+        uni-echo.db
+    docs/
+        database_structure.txt
+        folder_structure.txt
+        requirements.txt
+    helpers/
+        backup.py
+        dbsqlite.py
+    static/
+        autosize.min.js
+        dispatch.css
+        dispatch.js
+        jquery.ui.touch-punch.min.js
+        main.css
+    templates/
+        chat_history.html
+        index.html
+        messages.html
+        summarize_prompt.html
+        summary.html

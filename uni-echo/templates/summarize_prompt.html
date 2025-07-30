@@ -1,0 +1,34 @@
+<h3 class="text-center">Chat Summary</h3>
+
+<form class="ajaxform" data-module="uni" data-action="summarize-conversation">
+    
+    <label for="summary-title">Summary Title:</label>
+    <div class="input-group mb-3">
+        
+        <input type="text" class="form-control" id="summary-title" name="summary_title" placeholder="Enter a title for the summary" required>
+        <button class="tmbtn btn btn-success" data-module="uni" data-action="generate-title"><i class="fas fa-magic"></i></button>
+
+    </div>
+
+    <label for="summary-content">Summary Content:</label>
+    <div class="input-group mb-3">
+        
+        <textarea class="form-control autosize" id="summary-content" name="summary_content" placeholder="Enter the summary content here..." required>{{ summary_content }}</textarea>
+        <button class="btn btn-success tmbtn" data-module="uni" data-action="generate-summary"><i class="fas fa-magic"></i></button>
+
+    </div>
+
+    <div class="text-center">
+        
+        <p style="">
+            Are you sure you want to summarize the conversation? This will create a summary of the chat history and close the chat.
+        </p>
+        
+        <button type="submit" class="btn btn-primary">
+            Save Summary
+        </button>
+
+    </div>
+</form>
+
+

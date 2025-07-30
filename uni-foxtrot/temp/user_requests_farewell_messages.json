@@ -1,0 +1,90 @@
+[
+    {
+        "role": "system",
+        "content": "You are a helpful assistant that determines if a phrase can be handled as a RegEx pattern or Constituency Parsing pattern."
+    },
+    {
+        "role": "user",
+        "content": "Can the following phrase be handled as a RegEx pattern or Constituency Parsing pattern?\nIf it's short, and seems like a simple command, it should be a RegEx pattern.\nIf it's more complex, or deals with attributes of entities belonging to the user, like his cats, or computers, it should be a Constituency Parsing pattern.\n\nThe phrase is: Goodbye!\n\nOnly respond with \"RegEx\" or \"Constituency Parsing\" based on your analysis of the phrase, without the quotes.\n"
+    },
+    {
+        "role": "assistant",
+        "content": "RegEx"
+    },
+    {
+        "role": "system",
+        "content": "You are a helpful assistant that generates RegEx patterns. These are the currently existing RegEx patterns: what\\s+time\\s+is\\s+it\\W*, what(\\'s|\\s+is)\\s+the\\s+time(\\s+now)?, what\\s+day\\s+is\\s+it(\\s+today)?\\W*, what(\\'s|\\s+is)\\s+the\\s+day(\\s+today)?\\W*, what(\\'s|\\s+is)\\s+the\\s+date(\\s+today)?\\W*, what\\s+date\\s+is\\s+it(\\s+today)?\\W*, ^(((what|how)\\s+about)|and)\\s+now\\W*, ^((do\\s+it|run(\\s+it)?|execute(\\s+it)?)?(\\s+it)?\\s+)?again, ^again$, ^(hello|hi|hey)(,)?(\\s+there|\\s+you)?([.!?])?$, ^(how\\'s|how\\s+is)\\s+the\\s+weather(\\s+like|\\s+outside|\\s+today|\\s+now)?([.!?])?$, ^(thanks|thank\\s+you|thank\\s+you\\s+very\\s+much|thanks\\s+a\\s+lot)(\\s+so\\s+much)?([.!?])?$"
+    },
+    {
+        "role": "user",
+        "content": "Generate a similar RegEx pattern that matches the following phrase: Goodbye!)\n\nMake sure that you only output the pattern. Include robust variations. For example, use the existing patterns as a reference. Only return back the pattern itself, without any additional text or explanation. Do not include improper grammar patterns. Make sure the RegEx is correct as well. Match groups should be used where appropriate, and the pattern should be robust enough to match variations of the phrase. Use `\\s+` like the other patterns for space characters between words. Always include the space at the beginning for each optional word or word group. \n\nFor example, for the phrase \"Hello, there!\", we would use \"hello\", \"hi\", and \"hey\" as they are common greeting phrase starters. We would then add an optional comma right after, and then an optional group of words that start with a space character to make it easier to parse. The pattern would most likely follow this pattern in this case: `^(hello|hi|hey)(,)?(\\s+there|\\s+you)?$` This patterns fits our rules. The word `here` doesn't make sense to be optional, as it's strange to say, \"hello here\". It starts with a mandatory key word, has an optional comma, followed by a group of optional words with their own space character for easy parsing. Don't forget optional punctuation at the end.\n\nOutput must be in json format like this:\n\n{\n    \"pattern\": \"^words in the pattern( with optional text)?$\",\n    \"groups\": [\"group1\", \"group2\", ...],\n}\n\nNo ticks or special characters around the pattern. Just the proper JSON formatted pattern itself and the groups it matches. Use escape characters on special characters like quotes, backslashes, etc. in the pattern.\n\nMake sure that JSON values have double quotes around them, not single quotes. The groups should be the names of the groups in the RegEx pattern.\n"
+    },
+    {
+        "role": "assistant",
+        "content": "{\n    \"pattern\": \"^(goodbye|bye|see\\\\s+you)(\\\\s+later)?([.!?])?$\",\n    \"groups\": [\"greeting\", \"optional_time\", \"punctuation\"]\n}"
+    },
+    {
+        "role": "user",
+        "content": "Is the following RegEx pattern correct? ^(goodbye|bye|see\\s+you)(\\s+later)?([.!?])?$\n\nCan it be used to match the learning phrase: Goodbye!? The detected groups are: greeting, optional_time, punctuation. Only reply with the correct RegEx pattern."
+    },
+    {
+        "role": "assistant",
+        "content": "^(goodbye|bye|see\\s+you)(\\s+later)?([.!?])?$"
+    },
+    {
+        "role": "user",
+        "content": "Generate a set of positive examples for the following RegEx pattern: ^(goodbye|bye|see\\s+you)(\\s+later)?([.!?])?$.\n\nMake sure to include variations of the learning phrase that should match the pattern.\n\nReturn back the examples as a list of positive examples, like this:\n\n`[\"Example one\", \"Example two\", ...]` for positive examples and `[\"Example one\", \"Example two\", ...]` for negative examples."
+    },
+    {
+        "role": "assistant",
+        "content": "[\"Goodbye!\", \"Bye.\", \"See you\", \"See you later!\", \"Goodbye later\", \"Bye later.\", \"See you later?\"]"
+    },
+    {
+        "role": "user",
+        "content": "Generate a set of negative examples for the following RegEx pattern: ^(goodbye|bye|see\\s+you)(\\s+later)?([.!?])?$.\n\nMake sure to include variations of the learning phrase that should not match the pattern.\n\nReturn back the examples as a list of negative examples, like this:\n\n`[\"Example one\", \"Example two\", ...]` for positive examples and `[\"Example one\", \"Example two\", ...]` for negative examples."
+    },
+    {
+        "role": "assistant",
+        "content": "[\"Hello\", \"Goodbye now\", \"See you around the world\", \"Bye for now and forever\", \"See you later today and tomorrow\", \"Good morning\", \"What is your name\"]"
+    },
+    {
+        "role": "user",
+        "content": "Come up with a good function name that encompasses the intent of the user request. If the user is asking for time, use `user_requests_current_time`. If user asks to perform some function, the intent name should be more like `user_request_[some_function]`. Current intents are the following: user_requests_repetition, user_requests_current_time, user_requests_current_day, user_requests_current_date, user_requests_possession_availability, user_requests_greeting, user_requests_current_weather, user_requests_gratitude_expression. Make sure the name of the function is not used anywhere else. Just return the function name in lower case with underscores, without any quotes or other formatting. For example, if the user is asking for the weather, the function name should be `user_requests_current_weather`. Only return back the code as a standalone file."
+    },
+    {
+        "role": "assistant",
+        "content": "user_requests_farewell"
+    },
+    {
+        "role": "assistant",
+        "content": "Generate an output of code that will be directly stored in a file. The code should be a properly formatted code block using triple backticks on the lines before and after. The code is composed of required imports, only if any, the function body defined with the name user_requests_farewell, and a closing guard. The function body implements the intent of the user request. The code should be in Python 3.10+ syntax, and should not include any comments or explanations. The code should be ready to be executed as a standalone file. Do not include any additional text or explanation, just the code itself.\n        \nDo NOT match the regex inside the function. That is handled before the function is even called. The functions simply generates and answer and responds.\n\nThe function should generate a list of human readable formatted answers that are relevant to the intent of the user request. One random answer should be returned from the list of answers. The function should not return any other data, just the answer itself as a string.\n\nDo not get the API key from the OS environment. It will be a variable in the code itself. Do not use `os.getenv` to get the API key. Set the API key as `api_key = 'your_api_key_here'` or something similar. We do not use variables from the OS environment for the purpose of this demo.\n\nIf the user asks for something dynamic, like the weather, we need to account for that in our pattern as well. We use API calls to get the weather information in the code when creating the Python protocol file. When creating the function, we will use API calls to get the weather information. Default the city name to London.\n\nThe returning function should have no parameters passed into the function.\n\nDo not use any non utf-8 characters. Try using HTML characters for special characters, such as the degree symbol.\n\nWrap non group words in `?:...` so they don't produce extra groups.\n\nThe __main__ clause should print out what the function returns for testing purposes.\n\nThe list should be generated on multiple lines, depending on the variety of answers that can be generated. The function should not return any other data, just the answer itself as a string."
+    },
+    {
+        "role": "assistant",
+        "content": "import random\nimport requests\n\napi_key = 'your_api_key_here'\n\ndef user_requests_farewell():\n    answers = [\n        \"Goodbye!\",\n        \"See you later!\",\n        \"Bye for now!\",\n        \"Farewell!\",\n        \"Until next time!\",\n        \"Take care!\",\n        \"Have a great day!\",\n        \"See you soon!\",\n        \"Bye!\",\n        \"Goodbye for now!\"\n    ]\n    return random.choice(answers)\n\nif __name__ == \"__main__\":\n    print(user_requests_farewell())"
+    },
+    {
+        "role": "user",
+        "content": "Let's test the function and code by calling it."
+    },
+    {
+        "role": "user",
+        "content": "Does the code block require any additional information from the user, like an API key, registration, or other requirements? If so, please return a message that explains what the user needs to do to use this code block. If not, just return 'No'."
+    },
+    {
+        "role": "assistant",
+        "content": "To use this code block, you need to replace 'your_api_key_here' with a valid API key. However, since the function user_requests_farewell does not make any API calls, you can simply remove the api_key variable and the import requests statement, as they are not being used. The code will still work as expected."
+    },
+    {
+        "role": "user",
+        "content": "Extract the parts of the code block that need replacement with user input. For example, if the code block has an API key, or a location, or any other data that needs to be replaced with user input, extract those parts and return them as a list of strings. If there are no parts that need replacement, return an empty list. Only return the list of strings without any additional text or explanation. The code block is: \n\nimport random\nimport requests\n\napi_key = 'your_api_key_here'\n\ndef user_requests_farewell():\n    answers = [\n        \"Goodbye!\",\n        \"See you later!\",\n        \"Bye for now!\",\n        \"Farewell!\",\n        \"Until next time!\",\n        \"Take care!\",\n        \"Have a great day!\",\n        \"See you soon!\",\n        \"Bye!\",\n        \"Goodbye for now!\"\n    ]\n    return random.choice(answers)\n\nif __name__ == \"__main__\":\n    print(user_requests_farewell()).\n\nOnly output the list of strings, without any additional text or explanation, as such `[\"\"London\"\", \"\"your_openweathermap_api_key\"\"]`. This ensures that we match the parts that need replacement with user input. If there are no parts that need replacement, return an empty list as `[]`. Thank you."
+    },
+    {
+        "role": "assistant",
+        "content": "The parts that need replacement are: []."
+    },
+    {
+        "role": "assistant",
+        "content": "The test returns:\n\nGoodbye!."
+    }
+]

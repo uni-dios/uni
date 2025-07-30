@@ -1,0 +1,23 @@
+{% for summary in summaries %}
+
+    <div class="list-group-item">
+
+        <h5>
+            <a href="#" class="tmbtn" data-module="uni" data-action="show_summary/{{ summary['sum_id'] }}">
+                {{ summary.sum_title }}
+            </a>
+        </h5>
+
+        <p class="ellipsis" title="{{ summary.sum_content }}">
+            {{ summary.sum_content }}
+        </p>
+
+        <div class="text-muted small float-end">
+            <span>
+                Created at: 
+                {{ summary['sum_created'] | datetimeformat }}
+            </span>
+        </div>
+    </div>
+
+{% endfor %}

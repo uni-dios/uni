@@ -1,0 +1,14 @@
+<h3>Summary</h3>
+<div>
+    <strong>Title</strong>: {{ summary['sum_title'] }}
+</div>
+<div>
+    <strong>Content</strong>: {{ summary['sum_content'] }}
+</div>
+<hr />
+Conversation Messages:
+{% for msg in messages %}
+    <div class="message">
+        <strong>{{ msg.msg_role }}:</strong> {{ msg.msg_content }}
+    </div>
+{% endfor %}

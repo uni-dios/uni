@@ -1,0 +1,26 @@
+#messages {
+    height: calc(100vh - 245px);
+    overflow-y: auto;
+}
+#chat-form {
+    margin: 0;
+}
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.chat-wrapper {
+    position: relative;
+    min-height: 64px;
+}
+.chatbox {
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 100% !important;
+}
+
+.type-regex {
+    background-color: #fffbc4;
+}

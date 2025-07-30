@@ -1,0 +1,21 @@
+{% for msg in messages %}
+
+    <div class="border p-2 mb-2 rounded-3">
+
+        {% if msg['msg_role'] == 'user' %}
+            <div class="badge bg-primary">User</div>
+        {% else %}
+            <div class="badge bg-secondary">Bot</div>
+        {% endif %}
+
+        <div>
+            {{ msg['msg_content'] }}
+        </div>
+
+        <div class="text-muted small text-end">
+            {{ msg['msg_created'].strftime('%Y-%m-%d %H:%M:%S') }}
+        </div>
+        
+    </div>
+
+{% endfor %}

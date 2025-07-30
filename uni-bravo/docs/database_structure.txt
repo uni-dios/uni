@@ -1,0 +1,26 @@
+=== INKY DATABASE STRUCTURE ===
+
+TABLE: messages
+----------------------------------------
+  0   msg_id               INTEGER NOT NULL PRIMARY KEY DEFAULT NULL
+  1   sum_id               INTEGER NOT NULL DEFAULT 0
+  2   msg_role             TEXT NOT NULL DEFAULT NULL
+  3   msg_content          TEXT NOT NULL DEFAULT NULL
+  4   msg_created          timestamp NOT NULL DEFAULT current_timestamp
+  5   msg_updated          timestamp NOT NULL DEFAULT current_timestamp
+
+TABLE: sqlean_define
+----------------------------------------
+  0   name                 TEXT PRIMARY KEY DEFAULT NULL
+  1   type                 TEXT DEFAULT NULL
+  2   body                 TEXT DEFAULT NULL
+
+TABLE: summaries
+----------------------------------------
+  0   sum_id               INTEGER NOT NULL PRIMARY KEY DEFAULT NULL
+  1   sum_title            TEXT NOT NULL DEFAULT ''
+  2   sum_content          TEXT NOT NULL DEFAULT ''
+  3   sum_level            INTEGER NOT NULL DEFAULT 0
+  4   sum_created          TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  5   sum_updated          TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+

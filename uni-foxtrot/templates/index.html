@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <title>Chat Application</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="/static/dispatch.css" />
+        <link rel="stylesheet" href="/static/main.css" />
+        <script src="/static/dispatch.js"></script>
+        <script src="/static/autosize.min.js"></script>
+    </head>
+
+    <body>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h1>U. N. I. Engine</h1>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-4">
+                    <div class="">
+                        <h3>Chat History</h3>
+                        <div id="chat-history" class="list-group">
+                            {% include 'chat_history.html' %}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-8">
+
+                    <div id="messages" class="list-group">
+                        <!-- Chat messages will be appended here -->
+                        {% include 'messages.html' %}
+                    </div>
+
+                    <div class="card mt-3">
+                        <div class="card-body">
+                            <form id="chat-form" class="ajaxform" data-module="uni" data-action="send-chat">
+                                
+                                <label for="user-input">Type your message:</label>
+                                
+                                <div class="chat-wrapper">
+                                    <div class="input-group chatbox">
+                                        <textarea class="form-control autosize " id="user-input" placeholder="Type your message here..." required name="user_prompt"></textarea>
+                                        <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
+                                </div>
+
+                                <a href="#" class="small tmbtn" data-module="uni" data-action="summarize-conversation-prompt">summarize conversation</a>
+                                <a href="#" class="small tmbtn" data-module="uni" data-action="open-learning-center">learning center</a>
+
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <script type="text/javascript">
+            function scrollToTheTop() {
+                $("#messages").animate({
+                    scrollTop: $(document).find('#messages').get(0).scrollHeight
+                }, 500);
+            }
+            scrollToTheTop();
+            autosize($('.autosize'));
+        </script>
+        
+    </body>
+
+</html>

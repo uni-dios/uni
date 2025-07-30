@@ -1,0 +1,4 @@
+#chat-history {
+    height: calc(100vh - 320px);
+    overflow-y: auto;
+}
